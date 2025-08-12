@@ -1,1 +1,46 @@
+#include <iostream>
+using namespace std;
 
+int bin_search(int arr[], int n, int val) {
+    int start = 0, end = n - 1;
+    while (start <= end) {
+        int mid = (start + end) / 2; 
+        if (arr[mid] == val)
+            return mid; 
+        else if (arr[mid] < val)
+            start = mid + 1; 
+        else
+            end = mid - 1;
+    }
+    return -1; 
+}
+
+int lin_search(int arr[], int n, int val) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == val)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    int nums[] = {1, 3, 5, 7, 9, 11, 13};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    int x;
+    cout << "Enter number to search: ";
+    cin >> x;
+
+    int pos_bin = bin_search(nums, n, x);
+    if (pos_bin != -1)
+        cout << "Binary search: found at index " << pos_bin << endl;
+    else
+        cout << "Binary search: not found" << endl;
+
+    int pos_lin = lin_search(nums, n, x);
+    if (pos_lin != -1)
+        cout << "Linear search: found at index " << pos_lin << endl;
+    else
+        cout << "Linear search: not found" << endl;
+
+    return 0;
+}
