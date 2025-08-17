@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+// part a:concatenate two strings
+    string s1 = "Hello";
+    string s2 = "World";
+    string s3 = s1 + s2;
+    cout << "Concatenated: " << s3 << endl;
+
+//[art b: reverse a string
+    string txt = "Hello";
+    reverse(txt.begin(), txt.end());
+    cout << "Reversed: " << txt << endl;
+
+//part c: delete vowels
+    string st = "Hello World";
+    string res = "";
+    for (int i = 0; i < st.size(); i++) {
+        char ch = st[i];
+        if (ch!='a' && ch!='e' && ch!='i' && ch!='o' && ch!='u' &&
+            ch!='A' && ch!='E' && ch!='I' && ch!='O' && ch!='U') {
+            res += ch;
+        }
+    }
+    cout << "No vowels: " << res << endl;
+
+//part d:sort strings alphabetically
+    string words[] = {"banana", "apple", "grapes", "mango","kiwi"};
+    int n = 5;
+    sort(words, words + n);
+    cout << "Sorted: ";
+    for (int i = 0; i < n; i++) {
+        cout << words[i] << " ";
+    }
+    cout << endl;
+//part e: uppercase to lowercase
+    char c = 'A';
+    char low = tolower(c);
+    cout << "Lowercase: " << low << endl;
+
+    return 0;
+}
